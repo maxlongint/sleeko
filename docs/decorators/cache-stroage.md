@@ -2,7 +2,7 @@
 
 缓存装饰器分为两种：`SessionStorage` 和 `LocalStorage`。
 
-::: info
+::: tip 注意
 这两种装饰器均为 **属性装饰器**，只能用于类的属性； 并且类型需为 `BehaviorSubject<T>`。
 :::
 
@@ -39,7 +39,7 @@ class MyClass {
 | `version`        | `string` | `1.0.0` | 缓存的版本号，若为空则使用默认版本号。   |
 | `expirationTime` | `number` | `null`  | 缓存的过期时间，单位为毫秒。             |
 
-::: tip
+::: info 说明
 `expirationTime` 参数仅在使用 `LocalStorage` 时有效。
 :::
 

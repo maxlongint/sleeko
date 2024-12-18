@@ -2,32 +2,31 @@ import { defineConfig } from 'vitepress';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-    title: 'VitePress',
-    description: 'A VitePress Site',
+    title: 'Sleeko',
     themeConfig: {
         // https://vitepress.dev/reference/default-theme-config
-        nav: [
-            { text: 'Home', link: '/' },
-            { text: 'Examples', link: '/markdown-examples' },
-        ],
-        sidebar: [
-            {
-                collapsed: false,
-                text: 'Examples',
-                items: [
-                    { text: 'Markdown Examples', link: '/markdown-examples' },
-                    { text: 'Runtime API Examples', link: '/api-examples' },
-                ],
-            },
-            {
-                collapsed: false,
-                text: '装饰器',
-                items: [{ text: '缓存装饰器', link: '/decorators/cache-decorator' }],
-            },
-        ],
+        docFooter: {
+            prev: '上一页',
+            next: '下一页',
+        },
         outline: {
             label: '目录',
         },
+        nav: [
+            { text: '主页', link: '/' },
+            { text: '文档说明', link: '/getting-started' },
+        ],
+        sidebar: [
+            { text: '如何使用', link: '/getting-started' },
+            {
+                collapsed: false,
+                text: '装饰器',
+                items: [
+                    { text: '缓存装饰器', link: '/decorators/cache-stroage' },
+                    { text: '防抖装饰器', link: '/decorators/debounce-time' },
+                ],
+            },
+        ],
         socialLinks: [{ icon: 'github', link: 'https://github.com/vuejs/vitepress' }],
     },
 });
