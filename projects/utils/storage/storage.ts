@@ -97,31 +97,33 @@ function storageFactory(storage: Storage, propertyKey: string) {
 }
 
 /**
- * 创建一个存储装饰器
- * @param storage 存储对象（如 sessionStorage 或 localStorage）
- * @returns 装饰器函数
- */
-function createStorageDecorator(storage: Storage) {
-    return function (config: ISessionConfig & ILocalConfig) {
-        return function (target: Object, propertyKey: string): void {
-            const storageSubject = storageFactory(storage, propertyKey)(config); // 创建存储工厂
-            Object.defineProperty(target, propertyKey, {
-                get: () => storageSubject, // 定义属性的 getter
-                enumerable: true,
-                configurable: true,
-            });
-        };
-    };
-}
-
-/**
  * 会话存储装饰器
  * @param config 会话存储配置
  */
-export const SessionStorage = createStorageDecorator(sessionStorage);
+function SessionStorage(config: ISessionConfig) {
+    return function (target: Object, propertyKey: string): void {
+        const sessionStorageSubject = storageFactory(sessionStorage, propertyKey)(config); // 创建会话存储工厂
+        Object.defineProperty(target, propertyKey, {
+            get: () => sessionStorageSubject, // 定义属性的 getter
+            enumerable: true,
+            configurable: true,
+        });
+    };
+}
 
 /**
  * 本地存储装饰器
  * @param config 本地存储配置
  */
-export const LocalStorage = createStorageDecorator(localStorage);
+function LocalStorage(config: ILocalConfig) {
+    return function (target: Object, propertyKey: string): void {
+        const sessionStorageSubject = storageFactory(localStorage, propertyKey)(config); // 创建本地存储工厂
+        Object.defineProperty(target, propertyKey, {
+            get: () => sessionStorageSubject, // 定义属性的 getter
+            enumerable: true,
+            configurable: true,
+        });
+    };
+}
+
+export { SessionStorage, LocalStorage }; // 导出会话存储和本地存储装饰器
