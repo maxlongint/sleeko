@@ -5,6 +5,8 @@
 /tmp
 /out-tsc
 /bazel-out
+/docs/.vitepress/cache
+/docs/.vitepress/dist
 
 # Node
 /node_modules
