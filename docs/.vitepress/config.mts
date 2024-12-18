@@ -10,7 +10,6 @@ export default defineConfig({
             { text: 'Home', link: '/' },
             { text: 'Examples', link: '/markdown-examples' },
         ],
-
         sidebar: [
             {
                 collapsed: false,
@@ -26,7 +25,9 @@ export default defineConfig({
                 items: [{ text: '缓存装饰器', link: '/decorators/cache-decorator' }],
             },
         ],
-
+        outline: {
+            label: '目录',
+        },
         socialLinks: [{ icon: 'github', link: 'https://github.com/vuejs/vitepress' }],
     },
 });

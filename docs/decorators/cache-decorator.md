@@ -14,7 +14,7 @@
 import { SessionStorage } from '@sleeko/utils/storage';
 
 class MyClass {
-    @SessionStorage({ defaultValue: 0 })
+    @SessionStorage<number>({ defaultValue: 0 })
     count!: BehaviorSubject<number>;
 }
 ```
@@ -25,7 +25,7 @@ class MyClass {
 import { LocalStorage } from '@sleeko/utils/storage';
 
 class MyClass {
-    @LocalStorage({ defaultValue: 0, expirationTime: 10 * 1000 })
+    @LocalStorage<number>({ defaultValue: 0, expirationTime: 10 * 1000 })
     count!: BehaviorSubject<number>;
 }
 ```

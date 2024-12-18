@@ -8,6 +8,6 @@ import { BehaviorSubject } from 'rxjs';
     styleUrls: ['./session.component.scss'],
 })
 export class SessionComponent {
-    @SessionStorage({ defaultValue: 0 })
+    @SessionStorage<number>({ defaultValue: 0 })
     count!: BehaviorSubject<number>;
 }

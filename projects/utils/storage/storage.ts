@@ -100,7 +100,7 @@ function storageFactory(storage: Storage, propertyKey: string) {
  * 会话存储装饰器
  * @param config 会话存储配置
  */
-function SessionStorage(config: ISessionConfig) {
+function SessionStorage<T>(config: ISessionConfig<T>) {
     return function (target: Object, propertyKey: string): void {
         const sessionStorageSubject = storageFactory(sessionStorage, propertyKey)(config); // 创建会话存储工厂
         Object.defineProperty(target, propertyKey, {
@@ -115,7 +115,7 @@ function SessionStorage(config: ISessionConfig) {
  * 本地存储装饰器
  * @param config 本地存储配置
  */
-function LocalStorage(config: ILocalConfig) {
+function LocalStorage<T>(config: ILocalConfig<T>) {
     return function (target: Object, propertyKey: string): void {
         const sessionStorageSubject = storageFactory(localStorage, propertyKey)(config); // 创建本地存储工厂
         Object.defineProperty(target, propertyKey, {
