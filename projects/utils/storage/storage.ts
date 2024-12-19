@@ -8,12 +8,10 @@ interface IStorageConfig<T> {
      * 存储的默认值
      */
     defaultValue: T;
-
     /**
      * 属性键（可选）
      */
     propertyKey?: string;
-
     /**
      * 版本（可选）
      * 默认为 1.0.0
@@ -44,40 +42,35 @@ export interface ILocalConfig<T = unknown> extends IStorageConfig<T> {
  */
 function storageFactory(storage: Storage, propertyKey: string) {
     return (config: ISessionConfig & ILocalConfig): BehaviorSubject<typeof config.defaultValue> => {
-        propertyKey = `@${config.propertyKey ?? propertyKey}`; // 使用配置中的属性键，如果没有则使用传入的属性键
-        const storedValue: string | null = storage.getItem(propertyKey); // 从存储中获取值
-        let parsedValue: typeof config.defaultValue; // 解析后的值
-        let version = config.version ?? '1.0.0'; // 版本号，默认为 1.0.0
+        propertyKey = `@${config.propertyKey ?? propertyKey}`;
+        const storedValue: string | null = storage.getItem(propertyKey);
+        let parsedValue: typeof config.defaultValue = config.defaultValue;
+        const version = config.version ?? '1.0.0';
 
         try {
-            const storedData = storedValue ? JSON.parse(storedValue) : null; // 尝试解析存储的值
+            const storedData = storedValue ? JSON.parse(storedValue) : null;
             if (storedData) {
-                parsedValue = storedData.value ?? config.defaultValue; // 获取存储的值或默认值
-                if (config.expirationTime) {
-                    const expiry = storedData.expirationTime; // 获取过期时间
-                    if (expiry && expiry < Date.now()) {
-                        storage.removeItem(propertyKey); // 如果已过期，删除存储项
-                        parsedValue = config.defaultValue; // 使用默认值
-                    }
+                parsedValue = storedData.value ?? config.defaultValue;
+                if (config.expirationTime && storedData.expirationTime < Date.now()) {
+                    storage.removeItem(propertyKey);
+                    parsedValue = config.defaultValue;
                 } else if (storedData.version !== version) {
-                    storage.removeItem(propertyKey); // 如果版本不匹配，删除存储项
-                    parsedValue = config.defaultValue; // 使用默认值
+                    storage.removeItem(propertyKey);
+                    parsedValue = config.defaultValue;
                 }
             }
         } catch (error) {
-            console.error(`Error parsing stored value for ${propertyKey}:`, error); // 捕获解析错误
-            parsedValue = config.defaultValue; // 使用默认值
+            console.error(`Error parsing stored value for ${propertyKey}:`, error);
         }
 
-        const subject = new BehaviorSubject<typeof config.defaultValue>(parsedValue); // 创建一个 BehaviorSubject
+        const subject = new BehaviorSubject<typeof config.defaultValue>(parsedValue);
 
         subject.subscribe(value => {
             if (value == null) {
-                storage.removeItem(propertyKey); // 如果值为 null，删除存储项
-                subject.next(config.defaultValue); // 发送默认值
+                storage.removeItem(propertyKey);
+                subject.next(config.defaultValue);
             } else {
                 try {
-                    // 将新值存储到存储对象中
                     storage.setItem(
                         propertyKey,
                         JSON.stringify({
@@ -87,12 +80,29 @@ function storageFactory(storage: Storage, propertyKey: string) {
                         })
                     );
                 } catch (error) {
-                    console.error(`Error storing value for ${propertyKey}:`, error); // 捕获存储错误
+                    console.error(`Error storing value for ${propertyKey}:`, error);
                 }
             }
         });
 
-        return subject; // 返回 BehaviorSubject
+        return subject;
+    };
+}
+
+/**
+ * 创建存储装饰器
+ * @param storage 存储对象
+ * @param config 存储配置
+ * @returns 存储装饰器函数
+ */
+function createStorageDecorator<T>(storage: Storage, config: IStorageConfig<T>) {
+    return function (target: Object, propertyKey: string): void {
+        const storageSubject = storageFactory(storage, propertyKey)(config);
+        Object.defineProperty(target, propertyKey, {
+            get: () => storageSubject,
+            enumerable: true,
+            configurable: true,
+        });
     };
 }
 
@@ -101,14 +111,7 @@ function storageFactory(storage: Storage, propertyKey: string) {
  * @param config 会话存储配置
  */
 function SessionStorage<T>(config: ISessionConfig<T>) {
-    return function (target: Object, propertyKey: string): void {
-        const sessionStorageSubject = storageFactory(sessionStorage, propertyKey)(config); // 创建会话存储工厂
-        Object.defineProperty(target, propertyKey, {
-            get: () => sessionStorageSubject, // 定义属性的 getter
-            enumerable: true,
-            configurable: true,
-        });
-    };
+    return createStorageDecorator(sessionStorage, config);
 }
 
 /**
@@ -116,14 +119,7 @@ function SessionStorage<T>(config: ISessionConfig<T>) {
  * @param config 本地存储配置
  */
 function LocalStorage<T>(config: ILocalConfig<T>) {
-    return function (target: Object, propertyKey: string): void {
-        const sessionStorageSubject = storageFactory(localStorage, propertyKey)(config); // 创建本地存储工厂
-        Object.defineProperty(target, propertyKey, {
-            get: () => sessionStorageSubject, // 定义属性的 getter
-            enumerable: true,
-            configurable: true,
-        });
-    };
+    return createStorageDecorator(localStorage, config);
 }
 
-export { SessionStorage, LocalStorage }; // 导出会话存储和本地存储装饰器
+export { SessionStorage, LocalStorage };
