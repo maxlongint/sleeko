@@ -1,5 +1,7 @@
 # 如何使用
 
+<a href="https://www.npmjs.com/package/@sleeko/utils" target="_blank">![NPM Version](https://img.shields.io/npm/v/@sleeko/utils?label=@sleeko/utils)</a>
+
 ## 安装
 
 安装 `angular` 16及以上版本

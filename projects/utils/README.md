@@ -1,25 +1,11 @@
-# Utils
+# 如何使用
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
+## 安装
 
-## Code scaffolding
+安装 `angular` 16及以上版本
 
-Run `ng generate component component-name --project utils` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project utils`.
+```sh
+npm install --save-dev @sleeko/utils
+```
 
-> Note: Don't forget to add `--project utils` or else it will be added to the default project in your `angular.json` file.
-
-## Build
-
-Run `ng build utils` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Publishing
-
-After building your library with `ng build utils`, go to the dist folder `cd dist/utils` and run `npm publish`.
-
-## Running unit tests
-
-Run `ng test utils` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+> 由于 `typescript` 5.x版本变化，需要开启 `ts.config.json` 的 `useDefineForClassFields` 为 `true`

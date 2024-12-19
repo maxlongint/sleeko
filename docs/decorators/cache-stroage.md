@@ -1,8 +1,10 @@
 # 缓存装饰器
 
-缓存装饰器分为两种：`SessionStorage` 和 `LocalStorage`。
+缓存装饰器用于在浏览器中存储数据，以实现数据持久化。
 
 ::: tip 注意
+缓存装饰器分为两种：`SessionStorage` 和 `LocalStorage`。
+
 这两种装饰器均为 **属性装饰器**，只能用于类的属性； 并且类型需为 `BehaviorSubject<T>`。
 :::
 

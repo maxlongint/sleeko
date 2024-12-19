@@ -1,10 +1,11 @@
 {
-    "name": "ngx-sleeko",
-    "version": "0.0.0",
+    "name": "sleeko",
+    "version": "0.0.1",
     "scripts": {
         "ng": "ng",
         "start": "ng serve",
-        "build": "ng build",
+        "build:utils": "ng build utils",
+        "publish:utils": "npm publish ./publish/utils",
         "watch": "ng build --watch --configuration development",
         "test": "ng test",
         "docs:dev": "vitepress dev docs",

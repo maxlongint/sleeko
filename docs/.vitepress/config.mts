@@ -28,6 +28,9 @@ export default defineConfig({
                 ],
             },
         ],
-        socialLinks: [{ icon: 'github', link: 'https://github.com/vuejs/vitepress' }],
+        socialLinks: [
+            { icon: 'github', link: 'https://github.com/maxlongint/sleeko' },
+            { icon: 'npm', link: 'https://www.npmjs.com/package/@sleeko/utils' },
+        ],
     },
 });

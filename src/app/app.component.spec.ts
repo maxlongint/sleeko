@@ -7,7 +7,7 @@ describe('AppComponent', () => {
         TestBed.configureTestingModule({
             imports: [RouterTestingModule],
             declarations: [AppComponent],
-        }),
+        })
     );
 
     it('should create the app', () => {
@@ -16,18 +16,16 @@ describe('AppComponent', () => {
         expect(app).toBeTruthy();
     });
 
-    it(`should have as title 'ngx-sleeko'`, () => {
+    it(`should have as title 'sleeko'`, () => {
         const fixture = TestBed.createComponent(AppComponent);
         const app = fixture.componentInstance;
-        expect(app.title).toEqual('ngx-sleeko');
+        expect(app.title).toEqual('sleeko');
     });
 
     it('should render title', () => {
         const fixture = TestBed.createComponent(AppComponent);
         fixture.detectChanges();
         const compiled = fixture.nativeElement as HTMLElement;
-        expect(compiled.querySelector('.content span')?.textContent).toContain(
-            'ngx-sleeko app is running!',
-        );
+        expect(compiled.querySelector('.content span')?.textContent).toContain('sleeko app is running!');
     });
 });
