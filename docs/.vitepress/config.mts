@@ -35,7 +35,10 @@ export default defineConfig({
             {
                 collapsed: false,
                 text: 'hooks',
-                items: [{ text: '导航结束时', link: '/hooks/use-navigation-end' }],
+                items: [
+                    { text: '导航结束触发', link: '/hooks/use-navigation-end' },
+                    { text: '路由查询参数传递、获取', link: '/hooks/use-query-params' },
+                ],
             },
         ],
         socialLinks: [

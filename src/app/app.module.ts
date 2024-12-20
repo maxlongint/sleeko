@@ -7,9 +7,19 @@ import { DebounceTimeComponent } from './test-example/debounce-time/debounce-tim
 import { TakeUntilDestroyedComponent } from './test-example/take-until-destroyed/take-until-destroyed.component';
 import { StorageComponent } from './test-example/storage/storage.component';
 import { UseNavigationEndComponent } from './test-example/use-navigation-end/use-navigation-end.component';
+import { UseQueryParamsComponent } from './test-example/use-query-params/use-query-params.component';
+import { QueryParamsChildComponent } from './test-example/use-query-params/query-params-child/query-params-child.component';
 
 @NgModule({
-    declarations: [AppComponent, DebounceTimeComponent, TakeUntilDestroyedComponent, StorageComponent, UseNavigationEndComponent],
+    declarations: [
+        AppComponent,
+        DebounceTimeComponent,
+        TakeUntilDestroyedComponent,
+        StorageComponent,
+        UseNavigationEndComponent,
+        UseQueryParamsComponent,
+        QueryParamsChildComponent,
+    ],
     imports: [BrowserModule, AppRoutingModule],
     providers: [],
     bootstrap: [AppComponent],
