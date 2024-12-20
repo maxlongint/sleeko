@@ -1,4 +1,4 @@
-import { Component, DestroyRef, inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { takeUntilDestroyed } from '@sleeko/utils';
 import { interval } from 'rxjs';
 
@@ -8,11 +8,11 @@ import { interval } from 'rxjs';
     styleUrls: ['./take-until-destroyed.component.scss'],
 })
 export class TakeUntilDestroyedComponent implements OnInit {
-    destroyRef = inject(DestroyRef);
+    private readonly takeUntilDestroyed = takeUntilDestroyed();
 
     ngOnInit(): void {
         interval(1000)
-            .pipe(takeUntilDestroyed(this.destroyRef))
+            .pipe(this.takeUntilDestroyed)
             .subscribe(value => {
                 console.log(value);
             });
