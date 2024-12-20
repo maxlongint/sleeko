@@ -1,7 +1,7 @@
 import { assertInInjectionContext, inject } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
-import { takeUntilDestroyed } from './takeUntilDestroyed';
+import { takeUntilDestroyed } from '@sleeko/utils/operators';
 
 /**
  * 注入并返回一个可观察对象，该对象发出NavigationEnd事件

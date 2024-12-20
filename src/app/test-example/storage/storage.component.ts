@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SessionStorage } from '@sleeko/utils';
+import { SessionStorage } from '@sleeko/utils/decorators';
 import { BehaviorSubject } from 'rxjs';
 
 @Component({

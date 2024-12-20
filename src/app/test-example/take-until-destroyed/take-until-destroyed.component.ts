@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { takeUntilDestroyed } from '@sleeko/utils';
+import { takeUntilDestroyed } from '@sleeko/utils/operators';
 import { interval } from 'rxjs';
 
 @Component({

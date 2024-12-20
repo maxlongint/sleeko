@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DebounceTime } from '@sleeko/utils';
+import { DebounceTime } from '@sleeko/utils/decorators';
 
 @Component({
     selector: 'app-debounce-time',
