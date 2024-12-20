@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SessionComponent } from './session.component';
+import { StorageComponent } from './storage.component';
 
-describe('SessionComponent', () => {
-  let component: SessionComponent;
-  let fixture: ComponentFixture<SessionComponent>;
+describe('StorageComponent', () => {
+  let component: StorageComponent;
+  let fixture: ComponentFixture<StorageComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SessionComponent]
+      declarations: [StorageComponent]
     });
-    fixture = TestBed.createComponent(SessionComponent);
+    fixture = TestBed.createComponent(StorageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
