@@ -1,2 +1,11 @@
-<app-session></app-session>
-<app-debounce-time></app-debounce-time>
+<a [routerLink]="['/storage']" routerLinkActive="router-link-active">storage</a>
+<p></p>
+<a [routerLink]="['/debounce-time']" routerLinkActive="router-link-active">debounce-time</a>
+<p></p>
+<a [routerLink]="['/take-until-destroyed']" routerLinkActive="router-link-active">take-until-destroyed</a>
+<p></p>
+<a [routerLink]="['/use-navigation-end']" routerLinkActive="router-link-active">use-navigation-end</a>
+<p></p>
+<div>
+    <router-outlet></router-outlet>
+</div>

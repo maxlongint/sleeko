@@ -23,9 +23,19 @@ export default defineConfig({
                 collapsed: false,
                 text: '装饰器',
                 items: [
-                    { text: '缓存装饰器', link: '/decorators/cache-stroage' },
+                    { text: '缓存装饰器', link: '/decorators/stroage' },
                     { text: '防抖装饰器', link: '/decorators/debounce-time' },
                 ],
+            },
+            {
+                collapsed: false,
+                text: '操作符',
+                items: [{ text: '上下文销毁时完成订阅', link: '/operators/take-until-destroyed' }],
+            },
+            {
+                collapsed: false,
+                text: 'hooks',
+                items: [{ text: '导航结束时', link: '/hooks/use-navigation-end' }],
             },
         ],
         socialLinks: [

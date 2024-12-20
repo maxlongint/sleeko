@@ -5,7 +5,7 @@ layout: home
 hero:
     name: Sleeko
     text: 驱动Angular的工具箱
-    tagline: 提供一些便利的装饰器，函数等让编码变得简单
+    tagline: 依赖于 Angular 16 版本， 提供一些便利的装饰器，函数等让编码变得简单
     actions:
         - theme: brand
           text: 快速开始

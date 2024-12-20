@@ -8,9 +8,7 @@
 
 ## 示例
 
-```typescript{4}
-import { DebounceTime } from '@sleeko/utils/debounceTime';
-
+```typescript
 class MyClass {
     @DebounceTime(500)
     myMethod(): void {

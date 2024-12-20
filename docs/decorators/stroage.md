@@ -12,9 +12,7 @@
 
 `SessionStorage` 示例：
 
-```typescript{4}
-import { SessionStorage } from '@sleeko/utils/storage';
-
+```typescript
 class MyClass {
     @SessionStorage<number>({ defaultValue: 0 })
     count!: BehaviorSubject<number>;
@@ -23,9 +21,7 @@ class MyClass {
 
 `LocalStorage` 示例：
 
-```typescript{4}
-import { LocalStorage } from '@sleeko/utils/storage';
-
+```typescript
 class MyClass {
     @LocalStorage<number>({ defaultValue: 0, expirationTime: 10 * 1000 })
     count!: BehaviorSubject<number>;
@@ -51,8 +47,8 @@ class MyClass {
 
 ::: code-group
 
-<<< @/../src/app/test-example/session/session.component.html
+<<< @/../src/app/test-example/storage/storage.component.html
 
-<<< @/../src/app/test-example/session/session.component.ts#snippet{11,12}
+<<< @/../src/app/test-example/storage/storage.component.ts#snippet{11,12}
 
 :::
