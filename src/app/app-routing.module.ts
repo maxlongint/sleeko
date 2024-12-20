@@ -4,6 +4,8 @@ import { DebounceTimeComponent } from './test-example/debounce-time/debounce-tim
 import { TakeUntilDestroyedComponent } from './test-example/take-until-destroyed/take-until-destroyed.component';
 import { StorageComponent } from './test-example/storage/storage.component';
 import { UseNavigationEndComponent } from './test-example/use-navigation-end/use-navigation-end.component';
+import { UseQueryParamsComponent } from './test-example/use-query-params/use-query-params.component';
+import { QueryParamsChildComponent } from './test-example/use-query-params/query-params-child/query-params-child.component';
 
 const routes: Routes = [
     {
@@ -21,6 +23,16 @@ const routes: Routes = [
     {
         path: 'use-navigation-end',
         component: UseNavigationEndComponent,
+    },
+    {
+        path: 'use-query-params',
+        component: UseQueryParamsComponent,
+        children: [
+            {
+                path: 'child',
+                component: QueryParamsChildComponent,
+            },
+        ],
     },
 ];
 
