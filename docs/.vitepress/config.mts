@@ -25,6 +25,7 @@ export default defineConfig({
                 items: [
                     { text: '缓存装饰器', link: '/decorators/stroage' },
                     { text: '防抖装饰器', link: '/decorators/debounce-time' },
+                    { text: '节流装饰器', link: '/decorators/throttle-time' },
                 ],
             },
             {

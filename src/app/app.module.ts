@@ -9,6 +9,7 @@ import { StorageComponent } from './test-example/storage/storage.component';
 import { UseNavigationEndComponent } from './test-example/use-navigation-end/use-navigation-end.component';
 import { UseQueryParamsComponent } from './test-example/use-query-params/use-query-params.component';
 import { QueryParamsChildComponent } from './test-example/use-query-params/query-params-child/query-params-child.component';
+import { ThrottleTimeComponent } from './test-example/throttle-time/throttle-time.component';
 
 @NgModule({
     declarations: [
@@ -19,6 +20,7 @@ import { QueryParamsChildComponent } from './test-example/use-query-params/query
         UseNavigationEndComponent,
         UseQueryParamsComponent,
         QueryParamsChildComponent,
+        ThrottleTimeComponent,
     ],
     imports: [BrowserModule, AppRoutingModule],
     providers: [],
