@@ -30,16 +30,21 @@ export default defineConfig({
             },
             {
                 collapsed: false,
-                text: '操作符',
-                items: [{ text: '上下文销毁时完成订阅', link: '/operators/take-until-destroyed' }],
-            },
-            {
-                collapsed: false,
                 text: 'hooks',
                 items: [
                     { text: '导航结束触发', link: '/hooks/use-navigation-end' },
                     { text: '路由查询参数传递、获取', link: '/hooks/use-query-params' },
                 ],
+            },
+            {
+                collapsed: false,
+                text: '操作符',
+                items: [{ text: '上下文销毁时完成订阅', link: '/operators/take-until-destroyed' }],
+            },
+            {
+                collapsed: false,
+                text: '工具',
+                items: [{ text: '元素大小变化监听', link: '/tools/observeResize' }],
             },
         ],
         socialLinks: [

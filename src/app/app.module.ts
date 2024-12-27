@@ -10,6 +10,7 @@ import { UseNavigationEndComponent } from './test-example/use-navigation-end/use
 import { UseQueryParamsComponent } from './test-example/use-query-params/use-query-params.component';
 import { QueryParamsChildComponent } from './test-example/use-query-params/query-params-child/query-params-child.component';
 import { ThrottleTimeComponent } from './test-example/throttle-time/throttle-time.component';
+import { ObserveResizeComponent } from './test-example/observe-resize/observe-resize.component';
 
 @NgModule({
     declarations: [
@@ -21,6 +22,7 @@ import { ThrottleTimeComponent } from './test-example/throttle-time/throttle-tim
         UseQueryParamsComponent,
         QueryParamsChildComponent,
         ThrottleTimeComponent,
+        ObserveResizeComponent,
     ],
     imports: [BrowserModule, AppRoutingModule],
     providers: [],
