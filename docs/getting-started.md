@@ -4,7 +4,7 @@
 
 ## 安装
 
-依赖于 `Angular 16` 版本
+依赖于 `Angular 16.x` 版本
 
 ```sh
 npm install --save-dev @sleeko/utils

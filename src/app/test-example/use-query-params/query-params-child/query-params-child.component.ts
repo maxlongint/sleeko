@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { useQueryParams } from '@sleeko/utils/hooks';
 
 @Component({
@@ -6,10 +6,6 @@ import { useQueryParams } from '@sleeko/utils/hooks';
     templateUrl: './query-params-child.component.html',
     styleUrls: ['./query-params-child.component.scss'],
 })
-export class QueryParamsChildComponent implements OnInit {
-    readonly queryParams = useQueryParams();
-
-    ngOnInit(): void {
-        console.log(this.queryParams.value());
-    }
+export class QueryParamsChildComponent {
+    readonly params = useQueryParams().value();
 }

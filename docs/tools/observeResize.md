@@ -32,4 +32,10 @@ observeResize(document.getElementById('myElement')).subscribe(entries => {
 
 ### 示例代码
 
+::: code-group
+
+<<< @/../src/app/test-example/observe-resize/observe-resize.component.html#snippet{1}
+
 <<< @/../src/app/test-example/observe-resize/observe-resize.component.ts#snippet{15-19}
+
+:::

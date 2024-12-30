@@ -15,7 +15,6 @@ queryParams = useQueryParams<{ name: string; age: number }>();
 
 // 父路由添加参数并跳转
 queryParams.navigate('some-url', { name: '张三', age: 18 });
-
 // 子路由获得参数
 console.log(queryParams.value()); // 输出: { name: '张三', age: 18 }
 ```
@@ -37,7 +36,9 @@ console.log(queryParams.value()); // 输出: { name: '张三', age: 18 }
 
 <<< @/../src/app/test-example/use-query-params/use-query-params.component.ts#snippet{10,13} [parent.ts]
 
-<<< @/../src/app/test-example/use-query-params/query-params-child/query-params-child.component.ts#snippet{10,13} [child.ts]
+<<< @/../src/app/test-example/use-query-params/query-params-child/query-params-child.component.html#snippet{1} [child.html]
+
+<<< @/../src/app/test-example/use-query-params/query-params-child/query-params-child.component.ts#snippet{10} [child.ts]
 
 :::
 

@@ -7,9 +7,9 @@ import { useQueryParams } from '@sleeko/utils/hooks';
     styleUrls: ['./use-query-params.component.scss'],
 })
 export class UseQueryParamsComponent {
-    private readonly queryParams = useQueryParams();
+    private readonly navigate = useQueryParams().navigate;
 
-    navigate() {
-        this.queryParams.navigate('use-query-params/child', { hello: 'world' });
+    navigatePage() {
+        this.navigate('use-query-params/child', { hello: 'world' });
     }
 }
