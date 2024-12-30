@@ -4,7 +4,10 @@ import { defineConfig } from 'vitepress';
 export default defineConfig({
     title: 'Sleeko',
     base: '/sleeko/',
+    head: [['link', { rel: 'icon', href: '/sleeko/logo.svg' }]],
     themeConfig: {
+        // 网站的logo
+        logo: '/logo.svg',
         // https://vitepress.dev/reference/default-theme-config
         docFooter: {
             prev: '上一页',
@@ -17,6 +20,10 @@ export default defineConfig({
             { text: '主页', link: '/' },
             { text: '文档说明', link: '/getting-started' },
         ],
+        // 搜索
+        search: {
+            provider: 'local',
+        },
         sidebar: [
             { text: '如何使用', link: '/getting-started' },
             {

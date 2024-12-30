@@ -23,4 +23,6 @@ useNavigationEnd((event: NavigationEnd) => {
 
 ## 示例
 
+::: code-group
 <<< @/../src/app/test-example/use-navigation-end/use-navigation-end.component.ts#snippet{10-12}
+:::

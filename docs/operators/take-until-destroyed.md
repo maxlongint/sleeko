@@ -26,4 +26,6 @@ interval(1000)
 
 ### 示例代码
 
+::: code-group
 <<< @/../src/app/test-example/take-until-destroyed/take-until-destroyed.component.ts#snippet{15}
+:::
