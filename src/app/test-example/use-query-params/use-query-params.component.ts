@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { useQueryParams } from '@sleeko/utils/hooks';
+import { useNavigateTo } from '@sleeko/utils/hooks';
 
 @Component({
     selector: 'app-use-query-params',
@@ -7,9 +7,9 @@ import { useQueryParams } from '@sleeko/utils/hooks';
     styleUrls: ['./use-query-params.component.scss'],
 })
 export class UseQueryParamsComponent {
-    private readonly navigate = useQueryParams().navigate;
+    private readonly navigateTo = useNavigateTo();
 
     navigatePage() {
-        this.navigate('use-query-params/child', { hello: 'world' });
+        this.navigateTo('use-query-params/child', { hello: 'world' });
     }
 }

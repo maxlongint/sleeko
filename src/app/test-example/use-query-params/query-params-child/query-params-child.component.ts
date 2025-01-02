@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { useQueryParams } from '@sleeko/utils/hooks';
+import { useQueryParamsValue } from '@sleeko/utils/hooks';
 
 @Component({
     selector: 'app-query-params-child',
@@ -7,5 +7,5 @@ import { useQueryParams } from '@sleeko/utils/hooks';
     styleUrls: ['./query-params-child.component.scss'],
 })
 export class QueryParamsChildComponent {
-    readonly params = useQueryParams().value();
+    readonly params = useQueryParamsValue();
 }
