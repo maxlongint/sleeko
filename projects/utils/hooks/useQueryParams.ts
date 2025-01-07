@@ -1,5 +1,6 @@
 import { assertInInjectionContext, inject } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { map, Observable } from 'rxjs';
 
 /**
  * 编码查询参数为字符串
@@ -28,9 +29,9 @@ function decode<T>(encodedParams: string): T {
  * @template T 泛型参数，表示查询参数的类型，默认为Params类型
  * @returns 返回一个函数，该函数接受一个URL和一组查询参数，并返回一个Promise<boolean>
  */
-export function useNavigateTo<T = Params>(): (url: string, queryParams: T) => Promise<boolean> {
+export function useNavigate<T = Params>(): (url: string, queryParams: T) => Promise<boolean> {
     // 确保useNavigateTo在适当的上下文中被调用
-    assertInInjectionContext(useNavigateTo);
+    assertInInjectionContext(useNavigate);
     // 注入Router实例，用于执行导航操作
     const router = inject(Router);
     // 返回一个函数，用于执行实际的导航操作
@@ -52,11 +53,8 @@ export function useNavigateTo<T = Params>(): (url: string, queryParams: T) => Pr
  * 通过调用inject函数来获取ActivatedRoute实例，然后从其snapshot的queryParams中提取params属性
  * 最后，使用decode函数对params进行解码，以确保查询参数被正确地解析为预期的类型T
  */
-export function useQueryParamsValue<T = Params>(): () => T {
-    assertInInjectionContext(useQueryParamsValue);
+export function useQueryParams<T = Params>(): Observable<T> {
+    assertInInjectionContext(useQueryParams);
     const activatedRoute = inject(ActivatedRoute);
-    return (): T => {
-        const { params } = activatedRoute.snapshot.queryParams;
-        return decode<T>(params);
-    };
+    return activatedRoute.queryParams.pipe(map(({ params }) => decode<T>(params)));
 }
